@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg-canvas: #F6F5F2;
+    --bg-surface: #FFFFFF;
+    --bg-tint: #F3ECE0;
+    --bg-surface-alt: #EFECE6;
+    --bg-espresso: #3D312C;
+    --bg-espresso-soft: #4E403A;
+    --espresso-ink: #FAF7F2;
+    --espresso-muted: #DFD5CC;
+    --espresso-gold: #E2BD7E;
+
+    --border-subtle: #E3DCD2;
+    --border-control: #877E75;
+    --text-primary: #1C1917;
+    --text-secondary: #57534E;
+
+    --brand-gold: #CAA05C;
+    --brand-gold-hover: #D6B070;
+    --brand-gold-ink: #1C1917;
+    --brand-gold-text: #7A5820;
+
+    --brand-primary: #CAA05C;
+    --brand-primary-hover: #D6B070;
+    --brand-primary-ink: #1C1917;
+
+    --brand-secondary: #244A36;
+    --brand-secondary-bg: #E8F0EB;
+    --brand-secondary-ink: #244A36;
+
+    --accent-warm: #7A5820;
+    --accent-warm-bg: #F6ECD9;
+    --accent-warm-ink: #6A4B18;
+
+    --status-danger: #9E2A25;
+    --status-danger-bg: #FCECEB;
+
+    --shadow-elevated: 0 18px 42px rgba(28, 25, 23, 0.10);
+    --focus-ring: #7A5820;
+
+    --radius-badge: 8px;
+    --radius-control: 12px;
+    --radius-card: 18px;
+    --radius-panel: 26px;
+}
+
+.dark {
+    --bg-canvas: #151210;
+    --bg-surface: #1F1B18;
+    --bg-tint: #241E1A;
+    --bg-surface-alt: #2A2420;
+    --bg-espresso: #28201C;
+    --bg-espresso-soft: #362B26;
+    --espresso-ink: #F5F1EB;
+    --espresso-muted: #C7BDB3;
+    --espresso-gold: #E2BD7E;
+
+    --border-subtle: #3A322C;
+    --border-control: #8C8177;
+    --text-primary: #F5F1EB;
+    --text-secondary: #C7BDB3;
+
+    --brand-gold: #D5AE6D;
+    --brand-gold-hover: #E2BE82;
+    --brand-gold-ink: #151210;
+    --brand-gold-text: #E2BD7E;
+
+    --brand-primary: #D5AE6D;
+    --brand-primary-hover: #E2BE82;
+    --brand-primary-ink: #151210;
+
+    --brand-secondary: #A4D6B8;
+    --brand-secondary-bg: #1D3227;
+    --brand-secondary-ink: #A4D6B8;
+
+    --accent-warm: #E2BD7E;
+    --accent-warm-bg: #322719;
+    --accent-warm-ink: #ECCB92;
+
+    --status-danger: #F28E86;
+    --status-danger-bg: #3A1F1D;
+
+    --shadow-elevated: 0 20px 46px rgba(0, 0, 0, 0.45);
+    --focus-ring: #E2BD7E;
+}
+
+@layer base {
+    html {
+        background-color: var(--bg-canvas);
+        color: var(--text-primary);
+        font-family: 'Golos Text', ui-sans-serif, system-ui, sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--bg-canvas);
+        color: var(--text-primary);
+        overflow-x: clip;
+        transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                    color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    h1, h2, h3, h4 {
+        font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+        letter-spacing: -0.02em;
+    }
+
+    :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+        outline: 2px solid var(--focus-ring);
+        outline-offset: 2px;
+    }
+}
+
+@layer components {
+    .lk-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        min-height: 46px;
+        padding: 0.7rem 1.5rem;
+        border-radius: 9999px;
+        background-color: var(--brand-gold);
+        color: var(--brand-gold-ink);
+        font-family: 'Golos Text', sans-serif;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        line-height: 1.2;
+        transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 160ms ease;
+    }
+
+    .lk-btn-primary:hover {
+        background-color: var(--brand-gold-hover);
+    }
+
+    .lk-btn-primary:active {
+        transform: translateY(1px);
+    }
+
+    .lk-btn-espresso {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        min-height: 46px;
+        padding: 0.7rem 1.5rem;
+        border-radius: 9999px;
+        background-color: var(--bg-espresso);
+        color: var(--espresso-ink);
+        font-weight: 600;
+        font-size: 0.9375rem;
+        line-height: 1.2;
+        transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 160ms ease;
+    }
+
+    .lk-btn-espresso:hover {
+        background-color: var(--bg-espresso-soft);
+    }
+
+    .lk-btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        min-height: 44px;
+        padding: 0.625rem 1.35rem;
+        border-radius: 9999px;
+        border: 1px solid var(--border-control);
+        background-color: var(--bg-surface);
+        color: var(--text-primary);
+        font-weight: 500;
+        font-size: 0.9375rem;
+        line-height: 1.2;
+        transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                    border-color 180ms ease;
+    }
+
+    .lk-btn-secondary:hover {
+        background-color: var(--bg-tint);
+    }
+
+    .lk-input {
+        width: 100%;
+        min-height: 44px;
+        padding: 0.6rem 0.95rem;
+        border-radius: var(--radius-control);
+        border: 1px solid var(--border-control);
+        background-color: var(--bg-surface);
+        color: var(--text-primary);
+        font-size: 0.9375rem;
+        transition: border-color 180ms ease, background-color 180ms ease;
+    }
+
+    .lk-input::placeholder {
+        color: var(--text-secondary);
+        opacity: 0.85;
+    }
+
+    .lk-input:focus {
+        border-color: var(--brand-gold-text);
+        box-shadow: 0 0 0 1px var(--brand-gold-text);
+    }
+
+    .lk-card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-card);
+        transition: border-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .lk-frame {
+        border-radius: var(--radius-panel);
+    }
+
+    .lk-elevated {
+        box-shadow: var(--shadow-elevated);
+    }
+}
+
+.tabular-nums {
+    font-variant-numeric: tabular-nums;
+}
+
+[x-cloak] {
+    display: none !important;
+}
